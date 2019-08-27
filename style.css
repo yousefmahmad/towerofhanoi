@@ -1,0 +1,35 @@
+/* Create the area for the entire game to take place within the main container */
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    width: 60%;
+    padding-top: 200px;
+}
+
+/* seperate the stacks with borders and create 3 distinct playing areas */
+.stack{
+width:100%;
+height: 50px;
+margin: 0 auto;
+padding-top: 200px;
+border: black solid 1px;
+}
+.disk{
+border: black solid 1px;
+background-color: blue;
+height: 10px;
+margin: 0 auto;
+}
+
+#one{
+   width: 10px;
+}
+
+#two{
+    width: 20px;
+}
+
+#three{
+    width: 30px;
+}
