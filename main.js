@@ -10,29 +10,32 @@ let disks = [one, two, three]
 
 // create a variable for each stack
 const stackA = document.querySelector('#A')
+const stackB = document.querySelector('#B')
 const stackC = document.querySelector('#C')
-const StackB = document.querySelector('#B')
 
-// maybe if i add
 // Moving the blocks from one container to the other
-// ran into bug that when one block is clicked, they all go to stack that corresponds with their number
 
-
-function selectDisk() {
+function move() {
   for (let i = 0; i < disks.length; i++)
     disks[i].addEventListener('click', function () {
-     disks[i].style.border = 'Red 2px Solid';
-     console.log(disks[i]);
-     stackA.addEventListener('click', function(){
-      stackA.appendChild(disks[i])});
-     stackB.addEventListener('click', function(){
-      stackB.appendChild(disks[i])});
-      stackC.addEventListener('click', function(){
-        stackC.appendChild(disks[i])});
-      })
-    }
-    
-console.log(selectDisk())
+      disks[i].style.border = 'Red 2px Solid';
+      console.log(disks[i]);
+
+      stackA.addEventListener('click', function () {
+        stackA.appendChild(disks[i])
+      });
+
+      stackB.addEventListener('click', function () {
+        stackB.appendChild(disks[i])
+      });
+
+      stackC.addEventListener('click', function () {
+        stackC.appendChild(disks[i])
+      });
+    })
+}
+
+console.log(move())
 
 // Moves the disks together into the different container
 // function selectStack1() {
