@@ -14,6 +14,7 @@ const stackB = document.querySelector('#B')
 const stackC = document.querySelector('#C')
 
 // Moving the blocks from one container to the other
+// use 'prepend' in order to insert new disk at the top of the parent node as the first child
 
 function move() {
   for (let i = 0; i < disks.length; i++)
@@ -22,36 +23,36 @@ function move() {
       console.log(disks[i]);
 
       stackA.addEventListener('click', function () {
-        stackA.appendChild(disks[i])
+        stackA.prepend(disks[i])
       });
 
       stackB.addEventListener('click', function () {
-        stackB.appendChild(disks[i])
+        stackB.prepend(disks[i])
       });
 
       stackC.addEventListener('click', function () {
-        stackC.appendChild(disks[i])
+        stackC.prepend(disks[i])
       });
     })
 }
 
 console.log(move())
 
-// Moves the disks together into the different container
-// function selectStack1() {
-//   for (let i = 0; i < stack.length; i++)
-//     stack[i].addEventListener('click', function () {
-//       stack[i].appendChild(disks[0])
-//     })
-// }
-// console.log(selectStack1())
+// remove event listener
 
+//create a solution set to set your winning parameter in order to compare it to something else.
+// const Solution =
 
-  // *create a solution set to set your winning parameter to in order to compare it to something else. Need to figure out how to get the computer
-  // to read that each individual disk is ontop of the other, so that it will read the disks from top to bottom, comparing their widths
-  // perhaps putting the solution array to equal a specific sequence which correlates to the disks being on top of one another from smalleset to largest
-  // top to bottom?
-  // Test this out once you're able to start moving the disks around to see how the computer pushes each move into an array
+// check function to make sure that the player doesn't place a larger disk on top of a smaller one.
+function check() {
+  for (let i = 0; i < stack.length; i++) {
+    if (
+      stack[i].firstElementChild < move(disks[i])
+    ){
+      alert("You can't place larger disks on top of smaller ones! Try Again.")
+    }
+}
+}
 
   // basically the solution is to have the disk divs as they are, except in stack C
   // const solution 
