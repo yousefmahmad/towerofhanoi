@@ -4,7 +4,7 @@ const stackB = document.querySelector('#B')
 const stackC = document.querySelector('#C')
 
 // create a variable for all the stacks
-const stack = [stackA, stackB, stackC]
+const stacks = [stackA, stackB, stackC]
 //* create variables for each disk
 const one = document.querySelector('#one')
 const two = document.querySelector('#two')
@@ -22,19 +22,21 @@ for (let i = 0; i < disks.length; i++) {
   })
 }
 
-stack.addEventListener('click', function (evt) {
-  evt.preventDefault();
-  if (evt.target.id === 'A') {
-    stackA.appendChild(disks[i])
-  } else if (evt.target.id === 'B') {
-    stackB.appendChild(disks[i])
-  } else if (evt.target.id === 'C') {
-    stackC.appendChild(disks[i])
-  }
-})
+for (let i = 0; i < stacks.length; i++) {
+  stacks[i].addEventListener('click', function (evt) {
+    evt.preventDefault();
+    if (evt.target.id === 'A') {
+      stackA.appendChild(disks[i])
+    } else if (evt.target.id === 'B') {
+      stackB.appendChild(disks[i])
+    } else if (evt.target.id === 'C') {
+      stackC.appendChild(disks[i])
+    }
+  })
+}
+
 // function chooseStack() {}
-console.log(move())
-console.log(stack)
+console.log(stacks)
 
 // Moves the disks together into the different container
 // function selectStack1() {
