@@ -76,10 +76,26 @@ console.log(move())
 }
 
 //create a solution set to set your winning parameter in order to compare it to something else.
-// const Solution =
+// const Solution = stackC.children([one, two, three])
 
 
-
-
+// for every move mad the tracker will go up one
+const moves = document.querySelector('.movesCounter')
+let moveStart = -1;
+function tracker () {
+  for(let i = 0; i < stack.length; i++)
+  stack[i].addEventListener('click', function(){
+  moves.innerHTML = `Moves: ${moveStart += 1}`
+  })
+}
+console.log(tracker())
+// min amount of moves to win
+let n = disks.length
+const minMoves = 0
+const minCalc = document.querySelector('.minMoves')
+function calcMin (){
+  minCalc.innerHTML = `Minimum Moves to Win: ${((Math.pow(2, n)) - 1)}`
+}
+console.log(calcMin())
   // basically the solution is to have the disk divs as they are, except in stack C
   // const solution 
