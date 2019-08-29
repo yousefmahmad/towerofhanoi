@@ -2,32 +2,47 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tower of Hanoi</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-      <div class="movesCounter">Moves:0</div>
-      <div class = "minMoves"> Minimum Moves to Win: </div>
-        <!-- game container where the game will be played -->
-        <main class="game">
-            <!-- create different stacks representing the different rods to move into -->
-            <section class="gameArea">
-              <div class="stack" id="A">
-                <!-- place the disks in the starting stack. This is where they'll be starting every -->
-                <div class="disk" id="one" data-value = "1"></div>
-                <div class="disk" id="two" data-value="2"></div>
-                <div class="disk" id="three" data-value="3"></div>
-              </div>
-              <div class="stack" id="B"></div>
-              <div class="stack" id="C"></div>
-          </section>
-        </main>
-        <script src="./main.js" async defer></script>
-    </body>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tower of Hanoi</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<h1>Tower of Hanoi</h1>
+<body>
+  <!-- game container where the game will be played -->
+  <main class="game">
+    <div class="movesCounter">Moves:0</div>
+    <div class="minMoves"> Minimum Moves to Win: </div>
+    <!-- create different stacks representing the different rods to move into -->
+    <section class="gameArea">
+      <div class="stack" id="A">
+        <!-- place the disks in the starting stack. This is where they'll be starting every -->
+        <div class="disk" id="one" data-value="1"></div>
+        <div class="disk" id="two" data-value="2"></div>
+        <div class="disk" id="three" data-value="3"></div>
+      </div>
+      <div class="stack" id="B"></div>
+      <div class="stack" id="C"></div>
+    </section>
+  </main>
+  <Section class="animation" id="stickman"></Section>
+  <!-- MUSIC!! -->
+  <!-- <div data-video="JyNYkWKHf1Q"  
+  data-autoplay="1"         
+  data-loop="1"             
+  id="youtube-audio">
+</div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script> -->
+  <script src="./main.js" async defer></script>
+</body>
+
 </html>
