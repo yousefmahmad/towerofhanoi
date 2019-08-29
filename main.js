@@ -45,23 +45,31 @@ function stopMove() {
       function check() {
         for (let i = 0; i < stack.length; i++) {
           if (
+            // not sure how to target the data-value assigned in the dom tree to compare
             stack[i].firstElementChild.nodeValue < disks[i]) {
             alert("You can't place larger disks on top of smaller ones! Try Again.")
           }
         }
       }
       // Remove the event listener after a disk has been moved
-      stackA.removeEventListener('click', function () {
-        stackA.prepend(disks[i])
-      });
+      stack[i].forEach(function(){
+        stack[i].removeEventListener('click', function(){
+          stack[i].prepend(disks[i])
+        })
+      })
+      // A second solution.....
 
-      stackB.removeEventListener('click', function () {
-        stackB.prepend(disks[i])
-      });
+      // stackA.removeEventListener('click', function () {
+      //   stackA.prepend(disks[i])
+      // });
 
-      stackC.removeEventListener('click', function () {
-        stackC.prepend(disks[i])
-      });
+      // stackB.removeEventListener('click', function () {
+      //   stackB.prepend(disks[i])
+      // });
+
+      // stackC.removeEventListener('click', function () {
+      //   stackC.prepend(disks[i])
+      // });
     })
 }
 
