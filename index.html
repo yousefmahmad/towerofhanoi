@@ -17,14 +17,16 @@
         <!-- game container where the game will be played -->
         <main class="game">
             <!-- create different stacks representing the different rods to move into -->
-            <div class="stack" id="A">
-              <!-- place the disks in the starting stack. This is where they'll be starting every -->
-              <div class="disk" id="one" data-value = "1"></div>
-              <div class="disk" id="two" data-value="2"></div>
-              <div class="disk" id="three" data-value="3"></div>
-            </div>
-            <div class="stack" id="B"></div>
-            <div class="stack" id="C"></div>
+            <section class="gameArea">
+              <div class="stack" id="A">
+                <!-- place the disks in the starting stack. This is where they'll be starting every -->
+                <div class="disk" id="one" data-value = "1"></div>
+                <div class="disk" id="two" data-value="2"></div>
+                <div class="disk" id="three" data-value="3"></div>
+              </div>
+              <div class="stack" id="B"></div>
+              <div class="stack" id="C"></div>
+          </section>
         </main>
         <script src="./main.js" async defer></script>
     </body>
