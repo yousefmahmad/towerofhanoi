@@ -1,3 +1,52 @@
+body{
+    background-image: url(https://media.giphy.com/media/wrxXPX0MVUQg/giphy.gif);
+}
+
+#one{
+    background-image: url(./img/andre-benz-TYjU0fpFLNY-unsplash.jpg);
+    background-size: cover;
+    animation-name: towersOne;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+@keyframes towersOne{
+    from { background-image: url(./img/andre-benz-TYjU0fpFLNY-unsplash.jpg);}
+    to {background-image: url(./img/ishan-seefromthesky-6U-sSfBV-gM-unsplash.jpg);}
+    from{ background-image: url(./img/ishan-seefromthesky-6U-sSfBV-gM-unsplash.jpg);}
+    to {background-image: url(./img/jc-gellidon-Khqmo4T-rs0-unsplash.jpg);}
+}
+
+#two{
+    background-image: url(./img/max-bender-VmX3vmBecFE-unsplash.jpg);
+    background-size: cover;
+    animation-name: towersTWO;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+@keyframes towersTWO{
+    from{background-image: url(./img/max-bender-VmX3vmBecFE-unsplash.jpg);}
+    to{ background-image: url(./img/mwangi-gatheca-qlKaN7eqay8-unsplash.jpg);}
+    from{ background-image: url(./img/mwangi-gatheca-qlKaN7eqay8-unsplash.jpg);}
+    to{background-image: url(./img/nikita-karimov-lvJZhHOIJJ4-unsplash.jpg);}
+}
+#three{
+    background-image: url(./img/vlad-shapochnikov-uPJzWWhPcP4-unsplash.jpg);
+    background-size: cover;
+    animation-name: towersThree;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+@keyframes towersThree{
+    from{background-image: url(./img/vlad-shapochnikov-uPJzWWhPcP4-unsplash.jpg);}
+    to{background-image: url(./img/thomas-tucker-au3CYbd7vCU-unsplash.jpg);}
+    from{background-image: url(./img/thomas-tucker-au3CYbd7vCU-unsplash.jpg);}
+    to{background-image: url(./img/andre-benz-BCraX7OJsnI-unsplash.jpg);}
+}
+
+
 /* Create the area for the entire game to take place within the main container */
 main{
     display: grid;
