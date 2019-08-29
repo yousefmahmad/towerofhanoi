@@ -15,25 +15,31 @@ let disks = [one, two, three]
 // Moving the blocks from one container to the other
 
 // function move() {
-for (let i = 0; i < disks.length; i++) {
-  disks[i].addEventListener('click', function () {
-    disks[i].style.border = 'Red 2px Solid';
-    console.log(disks[i]);
-  })
-}
+// for (let i = 0; i < disks.length; i++) {
+//   disks[i].addEventListener('click', function () {
+//     disks[i].style.border = 'Red 2px Solid';
+//     console.log(disks[i]);
+//   })
+// }
 
-for (let i = 0; i < stacks.length; i++) {
-  stacks[i].addEventListener('click', function (evt) {
-    evt.preventDefault();
-    if (evt.target.id === 'A') {
-      stackA.appendChild(disks[i])
-    } else if (evt.target.id === 'B') {
-      stackB.appendChild(disks[i])
-    } else if (evt.target.id === 'C') {
-      stackC.appendChild(disks[i])
-    }
-  })
-}
+// for (let i = 0; i < stacks.length; i++) {
+//   stacks[i].addEventListener('click', function (evt) {
+//     evt.preventDefault();
+//     if (evt.target.id === 'A') {
+//       stackA.appendChild(disks[i])
+//     } else if (evt.target.id === 'B') {
+//       stackB.appendChild(disks[i])
+//     } else if (evt.target.id === 'C') {
+//       stackC.appendChild(disks[i])
+//     }
+//   })
+// }
+
+const gameElement = document.querySelector(".game")
+
+gameElement.addEventListener("click", evt => {
+  console.log(evt.target)
+})
 
 // function chooseStack() {}
 console.log(stacks)
