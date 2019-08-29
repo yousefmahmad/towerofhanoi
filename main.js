@@ -36,6 +36,35 @@ function move() {
     })
 }
 
+function stopMove() {
+  for (let i = 0; i < disks.length; i++)
+    disks[i].removeEventListener('click', function () {
+      disks[i].style.border = 'Red 2px Solid';
+      console.log(disks[i]);
+      // check function to make sure that the player doesn't place a larger disk on top of a smaller one.
+      function check() {
+        for (let i = 0; i < stack.length; i++) {
+          if (
+            stack[i].firstElementChild.nodeValue < disks[i]) {
+            alert("You can't place larger disks on top of smaller ones! Try Again.")
+          }
+        }
+      }
+      // Remove the event listener after a disk has been moved
+      stackA.removeEventListener('click', function () {
+        stackA.prepend(disks[i])
+      });
+
+      stackB.removeEventListener('click', function () {
+        stackB.prepend(disks[i])
+      });
+
+      stackC.removeEventListener('click', function () {
+        stackC.prepend(disks[i])
+      });
+    })
+}
+
 console.log(move())
 
 // remove event listener
@@ -43,16 +72,8 @@ console.log(move())
 //create a solution set to set your winning parameter in order to compare it to something else.
 // const Solution =
 
-// check function to make sure that the player doesn't place a larger disk on top of a smaller one.
-function check() {
-  for (let i = 0; i < stack.length; i++) {
-    if (
-      stack[i].firstElementChild < move(disks[i])
-    ){
-      alert("You can't place larger disks on top of smaller ones! Try Again.")
-    }
-}
-}
+
+
 
   // basically the solution is to have the disk divs as they are, except in stack C
   // const solution 
