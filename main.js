@@ -1,9 +1,11 @@
 // create a variable for all the stacks
 const stack = document.querySelectorAll('.stack')
+
 //* create variables for each disk
 const one = document.querySelector('#one')
 const two = document.querySelector('#two')
 const three = document.querySelector('#three')
+
 // create an array with each one of the disks within it
 let disks = [one, two, three]
 
@@ -19,8 +21,12 @@ const stackC = document.querySelector('#C')
 function move() {
   for (let i = 0; i < disks.length; i++)
     disks[i].addEventListener('click', function () {
+
+      // give red border on block when selected
       disks[i].style.border = 'Red 2px Solid';
       console.log(disks[i]);
+
+      // after  disk is selected, click on desired stack to move disk to
       stackA.addEventListener('click', function () {
         stackA.prepend(disks[i])
       });
@@ -35,6 +41,7 @@ function move() {
     })
 }
 
+// After moving disk to desired stack, remove the selection
 function stopMove() {
   for (let i = 0; i < disks.length; i++)
     disks[i].removeEventListener('click', function () {
@@ -46,7 +53,7 @@ function stopMove() {
           stack[i].prepend(disks[i])
         })
       })
-      // A second solution.....
+      // A second solution.....?
 
       // stackA.removeEventListener('click', function () {
       //   stackA.prepend(disks[i])
@@ -61,41 +68,49 @@ function stopMove() {
       // });
     })
 }
-
 console.log(move())
 
- // check function to make sure that the player doesn't place a larger disk on top of a smaller one.
- function check() {
+// check function to make sure that the player doesn't place a larger disk on top of a smaller one.
+// currently not working, but targeting is working
+function check() {
   for (let i = 0; i < stack.length; i++) {
     if (
       // Targeting the value of the disks correctly
-      stack[i].firstElementChild.dataset.value < disks[i].dataset.value) {
+      stack[i].firstElementChild.dataset.value < disks[i].dataset.value
+    ) {
       alert("You can't place larger disks on top of smaller ones! Try Again.")
     }
   }
 }
+console.log(check())
 
-//create a solution set to set your winning parameter in order to compare it to something else.
-// const Solution = stackC.children([one, two, three])
+//create a function so that when all 3 boxes have been set into stack C that the player wins
+// is not invoking until i go into console log and do callback
+function win() {
+  if (stackC.childElementCount === 3) {
+    return alert('Congratulations! You Win!')
+  }
+}
+console.log(win())
 
 
-// for every move mad the tracker will go up one
+// for every move made the tracker will go up one
 const moves = document.querySelector('.movesCounter')
 let moveStart = -1;
-function tracker () {
-  for(let i = 0; i < stack.length; i++)
-  stack[i].addEventListener('click', function(){
-  moves.innerHTML = `Moves: ${moveStart += 1}`
-  })
+function tracker() {
+  for (let i = 0; i < stack.length; i++)
+    stack[i].addEventListener('click', function () {
+      moves.innerHTML = `Moves: ${moveStart += 1}`
+    })
 }
 console.log(tracker())
+
+
 // min amount of moves to win
 let n = disks.length
 const minMoves = 0
 const minCalc = document.querySelector('.minMoves')
-function calcMin (){
+function calcMin() {
   minCalc.innerHTML = `Minimum Moves to Win: ${((Math.pow(2, n)) - 1)}`
 }
 console.log(calcMin())
-  // basically the solution is to have the disk divs as they are, except in stack C
-  // const solution 
