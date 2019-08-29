@@ -21,7 +21,6 @@ function move() {
     disks[i].addEventListener('click', function () {
       disks[i].style.border = 'Red 2px Solid';
       console.log(disks[i]);
-
       stackA.addEventListener('click', function () {
         stackA.prepend(disks[i])
       });
@@ -41,19 +40,9 @@ function stopMove() {
     disks[i].removeEventListener('click', function () {
       disks[i].style.border = 'Red 2px Solid';
       console.log(disks[i]);
-      // check function to make sure that the player doesn't place a larger disk on top of a smaller one.
-      function check() {
-        for (let i = 0; i < stack.length; i++) {
-          if (
-            // not sure how to target the data-value assigned in the dom tree to compare
-            stack[i].firstElementChild.nodeValue < disks[i]) {
-            alert("You can't place larger disks on top of smaller ones! Try Again.")
-          }
-        }
-      }
       // Remove the event listener after a disk has been moved
-      stack[i].forEach(function(){
-        stack[i].removeEventListener('click', function(){
+      stack[i].forEach(function () {
+        stack[i].removeEventListener('click', function () {
           stack[i].prepend(disks[i])
         })
       })
@@ -75,7 +64,16 @@ function stopMove() {
 
 console.log(move())
 
-// remove event listener
+ // check function to make sure that the player doesn't place a larger disk on top of a smaller one.
+ function check() {
+  for (let i = 0; i < stack.length; i++) {
+    if (
+      // Targeting the value of the disks correctly
+      stack[i].firstElementChild.dataset.value < disks[i].dataset.value) {
+      alert("You can't place larger disks on top of smaller ones! Try Again.")
+    }
+  }
+}
 
 //create a solution set to set your winning parameter in order to compare it to something else.
 // const Solution =
