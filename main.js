@@ -20,7 +20,7 @@ let disks = [one, two, three]
 //     disks[i].style.border = 'Red 2px Solid';
 //     console.log(disks[i]);
 //   })
-// }
+// } 
 
 // for (let i = 0; i < stacks.length; i++) {
 //   stacks[i].addEventListener('click', function (evt) {
