@@ -23,6 +23,10 @@ height: 30px;
 margin: 0 auto;
 }
 
+.disk.active {
+    border-color: red;
+}
+
 /* give each individual disk a different width */
 #one{
    width: 50px;

@@ -24,6 +24,7 @@ for (let i = 0; i < disks.length; i++) {
 }
 function move(evt) {
   console.log(evt)
+  evt.target.classList.toggle("active")
   stacks = [stackA, stackB, stackC]
   activeDisk = evt.target.dataset.value
   activeStack = evt.target.parentElement.id
@@ -48,8 +49,19 @@ function move(evt) {
 
 
 function check(evt) {
-  if (evt.target.firstElementChild > activeDisk) {
-    stacks[j].prepend(activeDisk)
+  console.log(evt.target)
+  console.log(evt.target.firstElementChild)
+  console.log(activeDisk)
+  console.log(evt.target.firstElementChild < activeDisk)
+
+  if (!evt.target.firstElementChild || evt.target.firstElementChild > activeDisk) {
+    const targetDisk = disks[activeDisk - 1]
+    targetDisk.classList.toggle("active")
+    evt.target.prepend(targetDisk)
+  } else {
+    evt.stopImmediatePropagation()
+    // evt.target.classList.toggle("active")
+    alert("You can't place larger disks on top of smaller ones! Try Again.")
     console.log(evt)
   }
 
