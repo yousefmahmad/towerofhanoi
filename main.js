@@ -1,6 +1,3 @@
-// create a variable for all the stacks
-const stack = document.querySelectorAll('.stack')
-
 //* create variables for each disk
 const one = document.querySelector('#one')
 const two = document.querySelector('#two')
@@ -8,13 +5,17 @@ const three = document.querySelector('#three')
 
 // create an array with each one of the disks within it
 let disks = [one, two, three]
-let activeDisk = null
 
+// actives
+let activeDisk = null
+let activeStack = null
 
 // create a variable for each stack
 const stackA = document.querySelector('#A')
 const stackB = document.querySelector('#B')
 const stackC = document.querySelector('#C')
+
+let stacks = [stackA, stackB, stackC]
 
 // Moving the blocks from one container to the other
 // use 'prepend' in order to insert new disk at the top of the parent node as the first child
@@ -23,11 +24,16 @@ const stackC = document.querySelector('#C')
 function move() {
   for (let i = 0; i < disks.length; i++)
     disks[i].addEventListener('click', function (evt) {
-      // activeDisk = evt.target.dataset.value
+      activeDisk = evt.target.dataset.value
+      activeStack = evt.target.parentElement.id
+
+      if(activeStack.id ===  )
 
       // give red border on block when selected
       disks[i].style.border = 'Red 2px Solid';
       console.log(disks[i])
+
+
 
       // after  disk is selected, click on desired stack to move disk to
       stackA.addEventListener('click', function (evt) {

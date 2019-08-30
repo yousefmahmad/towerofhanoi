@@ -82,6 +82,8 @@ height: 350px;
 
 /* Create the area for the entire game to take place within the main container */
 main{
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     width: 60%;
     padding-top: 50px;
