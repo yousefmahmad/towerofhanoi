@@ -21,57 +21,58 @@ const stackC = document.querySelector('#C')
 
 
 function move() {
-  for (let i = 0; i < disks.length; i++) 
-    disks[i].addEventListener('click', function () {
+  for (let i = 0; i < disks.length; i++)
+    disks[i].addEventListener('click', function (evt) {
       // activeDisk = evt.target.dataset.value
-      // check(evt)
 
       // give red border on block when selected
       disks[i].style.border = 'Red 2px Solid';
-      console.log(disks[i]);
+      console.log(disks[i])
+
 
       // after  disk is selected, click on desired stack to move disk to
-      stackA.addEventListener('click', function () {
-        // check()
+      stackA.addEventListener('click', function (evt) {
         stackA.prepend(disks[i])
         win()
+        check(evt)
       });
 
-      stackB.addEventListener('click', function () {
-        // check()
+      stackB.addEventListener('click', function (evt) {
         stackB.prepend(disks[i])
         win()
+        check(evt)
       });
 
-      stackC.addEventListener('click', function () {
-        // check()
+      stackC.addEventListener('click', function (evt) {
         stackC.prepend(disks[i])
         win()
+        check(evt)
       })
-    })
-  }
+   evt.stopPropagation()
+   })
+}
 console.log(move())
 
-function stopMove(){
-  for(let i = 0; i < disks.length; i++)
-      disks[i].removeEventListener('click', function(){
-        disks[i].style.border = 'none'
-        console.log(disks[i]);
-  
-        stackA.removeEventListener('click', function () {
-          null
-        });
-  
-        stackB.removeEventListener('click', function () {
-          null
-        });
-  
-        stackC.removeListener('click', function () {
-          null
-        })
-        
-      })
-    }
+// function stopMove(){
+//   for(let i = 0; i < disks.length; i++)
+//       disks[i].removeEventListener('click', function(){
+//         disks[i].style.border = 'none'
+//         console.log(disks[i]);
+
+//         stackA.removeEventListener('click', function () {
+//           null
+//         });
+
+//         stackB.removeEventListener('click', function () {
+//           null
+//         });
+
+//         stackC.removeListener('click', function () {
+//           null
+//         })
+
+//       })
+//     }
 
 
 
