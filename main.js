@@ -1,3 +1,10 @@
+// create a variable for each stack
+const stackA = document.querySelector('#A')
+const stackB = document.querySelector('#B')
+const stackC = document.querySelector('#C')
+
+// create a variable for all the stacks
+let stacks = [stackA, stackB, stackC]
 //* create variables for each disk
 const one = document.querySelector('#one')
 const two = document.querySelector('#two')
@@ -6,83 +13,64 @@ const three = document.querySelector('#three')
 // create an array with each one of the disks within it
 let disks = [one, two, three]
 
-// actives
+// active 
+
 let activeDisk = null
 let activeStack = null
 
-// create a variable for each stack
-const stackA = document.querySelector('#A')
-const stackB = document.querySelector('#B')
-const stackC = document.querySelector('#C')
-
-let stacks = [stackA, stackB, stackC]
-
-// Moving the blocks from one container to the other
-// use 'prepend' in order to insert new disk at the top of the parent node as the first child
-
-
-// function move() {
-//   for (let i = 0; i < disks.length; i++)
-//     disks[i].addEventListener('click', function (evt) {
-//       activeDisk = evt.target.dataset.value
-//       activeStack = evt.target.parentElement.id
-//       console.log(activeDisk)
-//       console.log(activeStack)
-//       if(activeStack.id === one){
-        
-//       }
-
-//       // give red border on block when selected
-//       disks[i].style.border = 'Red 2px Solid';
-//       // console.log(disks[i])
 
 
 
-//       // after  disk is selected, click on desired stack to move disk to
-//       stackA.addEventListener('click', function (evt) {
-//         stackA.prepend(disks[i])
-//         win(evt)
-//         })
-//       stackA.removeEventListener('click', function(){
-//         return console.log(stopped)
-//       })
 
-//       stackB.addEventListener('click', function (evt) {
-//         stackB.prepend(disks[i])
-//         win(evt)
-//       })
-//       stackB.removeEventListener('click', function(){
-//         return console.log(stopped)
-//       })
-//       stackC.addEventListener('click', function (evt) {
-//         stackC.prepend(disks[i])
-//         win(evt)
-//         })
-//         stackC.removeEventListener('click', function(){
-//           return console.log(stopped)
-//         })
-//         check(evt)
-//       })
-//       }
-  
-// console.log(move())
+// Moving disks to different stacks
+for (let i = 0; i < disks.length; i++) {
+  // disks[i].addEventListener('click', move.bind(evt))
+  disks[i].addEventListener('click', move)
+}
+function move(evt) {
+  // console.log(evt)
+  evt.target.classList.toggle("active")
+  stacks = [stackA, stackB, stackC]
+  activeDisk = evt.target.dataset.value
+  activeStack = evt.target.parentElement.id
+  // console.log(activeDisk)
+  // console.log(activeStack)
+  // give red border on block when selected
 
-// // check function to make sure that the player doesn't place a larger disk on top of a smaller one.
-// // currently not working, but targeting is working
-// function check(evt) {
-//   for (let i = 0; i < stack.length; i++) {
-//     if (
-//       // Targeting the value of the disks correctly
-//       stack[i].firstElementChild.dataset.value < evt.target.dataset.value
-//     ) {
+  // Go through all stacks and remove active stack from array
+  for (let i = 0; i < stacks.length; i++) {
+    if (activeStack === stacks[i].id) {
+      stacks.splice(i, 1);
+      // console.log(stacks)
+    }
+  }
 
-//       alert("You can't place larger disks on top of smaller ones! Try Again.")
-//       evt.stopImmediatePropagation()
-//     }
-//   }
-// }
+  // Put event listeners on remaining stacks
+  for (let j = 0; j < stacks.length; j++) {
+    stacks[j].addEventListener('click', check)
+  }
+}
 
+// Check that disk going into stack is not larger than disk already present in stack
 
+function check(evt) {
+  // console.log(evt.target)
+  // console.log(evt.target.firstElementChild)
+  // console.log(activeDisk)
+  // console.log(evt.target.firstElementChild < activeDisk)
+
+  if (evt.target.firstElementChild === null || evt.target.firstElementChild > activeDisk) {
+    const targetDisk = disks[activeDisk - 1]
+    targetDisk.classList.toggle("active")
+    evt.target.prepend(targetDisk)
+  } else if (evt.target.firstElementChild < activeDisk) {
+    evt.stopImmediatePropagation()
+    // evt.target.classList.toggle("active")
+    alert("You can't place larger disks on top of smaller ones! Try Again.")
+    console.log(evt)
+  }
+
+}
 
 //create a function so that when all 3 boxes have been set into stack C that the player wins
 // is not invoking until i go into console log and do callback
@@ -98,8 +86,8 @@ console.log(win())
 const moves = document.querySelector('.movesCounter')
 let moveStart = -1;
 function tracker() {
-  for (let i = 0; i < stack.length; i++)
-    stack[i].addEventListener('click', function () {
+  for (let i = 0; i < stacks.length; i++)
+    stacks[i].addEventListener('click', function () {
       moves.innerHTML = `Moves: ${moveStart += 1}`
     })
 }
@@ -114,3 +102,11 @@ function calcMin() {
   minCalc.innerHTML = `Minimum Moves to Win: ${((Math.pow(2, n)) - 1)}`
 }
 console.log(calcMin())
+
+
+
+
+
+
+
+
