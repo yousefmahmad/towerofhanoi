@@ -26,14 +26,15 @@ function move() {
     disks[i].addEventListener('click', function (evt) {
       activeDisk = evt.target.dataset.value
       activeStack = evt.target.parentElement.id
-
+      console.log(activeDisk)
+      console.log(activeStack)
       if(activeStack.id === one){
         
       }
 
       // give red border on block when selected
       disks[i].style.border = 'Red 2px Solid';
-      console.log(disks[i])
+      // console.log(disks[i])
 
 
 
