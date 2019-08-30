@@ -21,66 +21,66 @@ let stacks = [stackA, stackB, stackC]
 // use 'prepend' in order to insert new disk at the top of the parent node as the first child
 
 
-function move() {
-  for (let i = 0; i < disks.length; i++)
-    disks[i].addEventListener('click', function (evt) {
-      activeDisk = evt.target.dataset.value
-      activeStack = evt.target.parentElement.id
-      console.log(activeDisk)
-      console.log(activeStack)
-      if(activeStack.id === one){
+// function move() {
+//   for (let i = 0; i < disks.length; i++)
+//     disks[i].addEventListener('click', function (evt) {
+//       activeDisk = evt.target.dataset.value
+//       activeStack = evt.target.parentElement.id
+//       console.log(activeDisk)
+//       console.log(activeStack)
+//       if(activeStack.id === one){
         
-      }
+//       }
 
-      // give red border on block when selected
-      disks[i].style.border = 'Red 2px Solid';
-      // console.log(disks[i])
+//       // give red border on block when selected
+//       disks[i].style.border = 'Red 2px Solid';
+//       // console.log(disks[i])
 
 
 
-      // after  disk is selected, click on desired stack to move disk to
-      stackA.addEventListener('click', function (evt) {
-        stackA.prepend(disks[i])
-        win(evt)
-        })
-      stackA.removeEventListener('click', function(){
-        return console.log(stopped)
-      })
+//       // after  disk is selected, click on desired stack to move disk to
+//       stackA.addEventListener('click', function (evt) {
+//         stackA.prepend(disks[i])
+//         win(evt)
+//         })
+//       stackA.removeEventListener('click', function(){
+//         return console.log(stopped)
+//       })
 
-      stackB.addEventListener('click', function (evt) {
-        stackB.prepend(disks[i])
-        win(evt)
-      })
-      stackB.removeEventListener('click', function(){
-        return console.log(stopped)
-      })
-      stackC.addEventListener('click', function (evt) {
-        stackC.prepend(disks[i])
-        win(evt)
-        })
-        stackC.removeEventListener('click', function(){
-          return console.log(stopped)
-        })
-        check(evt)
-      })
-      }
+//       stackB.addEventListener('click', function (evt) {
+//         stackB.prepend(disks[i])
+//         win(evt)
+//       })
+//       stackB.removeEventListener('click', function(){
+//         return console.log(stopped)
+//       })
+//       stackC.addEventListener('click', function (evt) {
+//         stackC.prepend(disks[i])
+//         win(evt)
+//         })
+//         stackC.removeEventListener('click', function(){
+//           return console.log(stopped)
+//         })
+//         check(evt)
+//       })
+//       }
   
-console.log(move())
+// console.log(move())
 
-// check function to make sure that the player doesn't place a larger disk on top of a smaller one.
-// currently not working, but targeting is working
-function check(evt) {
-  for (let i = 0; i < stack.length; i++) {
-    if (
-      // Targeting the value of the disks correctly
-      stack[i].firstElementChild.dataset.value < evt.target.dataset.value
-    ) {
+// // check function to make sure that the player doesn't place a larger disk on top of a smaller one.
+// // currently not working, but targeting is working
+// function check(evt) {
+//   for (let i = 0; i < stack.length; i++) {
+//     if (
+//       // Targeting the value of the disks correctly
+//       stack[i].firstElementChild.dataset.value < evt.target.dataset.value
+//     ) {
 
-      alert("You can't place larger disks on top of smaller ones! Try Again.")
-      evt.stopImmediatePropagation()
-    }
-  }
-}
+//       alert("You can't place larger disks on top of smaller ones! Try Again.")
+//       evt.stopImmediatePropagation()
+//     }
+//   }
+// }
 
 
 
