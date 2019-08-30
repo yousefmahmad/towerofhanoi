@@ -38,6 +38,7 @@ let disks = [one, two, three]
 const gameElement = document.querySelector(".game")
 
 gameElement.addEventListener("click", evt => {
+  
   console.log(evt.target)
 })
 
@@ -61,4 +62,4 @@ console.log(stacks)
   // Test this out once you're able to start moving the disks around to see how the computer pushes each move into an array
 
   // basically the solution is to have the disk divs as they are, except in stack C
-  // const solution 
+  // const solution  
