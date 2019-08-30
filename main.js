@@ -11,33 +11,37 @@ const two = document.querySelector('#two')
 const three = document.querySelector('#three')
 // create an array with each one of the disks within it
 let disks = [one, two, three]
+
 // active 
 
 let activeDisk = null
 let activeStack = null
-
-
+let game = document.querySelector('.game')
 
 // Moving the blocks from one container to the other
 
 function move() {
-    gmaeElement.addEventListener('click', function (evt) {
-      activeDisk = evt.target.dataset.value
-      activeStack = evt.target.parentElement.id
-      console.log(activeDisk)
-      console.log(activeStack)
+    game.addEventListener('click', function(evt){
+      // activeDisk = evt.target.dataset.value
+      // activeStack = evt.target.parentElement.id
+
+      // console.log(activeDisk)
+      console.log(move())
     })
-  }
+      
 
+    // if (activeStack.id === one) {
+    //   stackB.addEventListener('click', function(){
+    //     stackB.prepend(activeDisk)}
+    //     )
 
-  const gameElement = document.querySelector(".game")
+    //     &&
 
-  // gameElement.addEventListener("click", evt => {
-  //   for (let i = 0; i < disks.length; i++)
-  //     if (evt.target = disks[0]) {
-  //       stackB.prepend(disks[0])
-  //     }
-  //   console.log(evt.target)
-  // })
+    //     stackC.addEventListener('click', function(){
+    //       stackC.prepend(activeDisk)}
+    //       )
+    //   } 
+}
+
 
 
