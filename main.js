@@ -23,20 +23,20 @@ for (let i = 0; i < disks.length; i++) {
   disks[i].addEventListener('click', move)
 }
 function move(evt) {
-  console.log(evt)
+  // console.log(evt)
   evt.target.classList.toggle("active")
   stacks = [stackA, stackB, stackC]
   activeDisk = evt.target.dataset.value
   activeStack = evt.target.parentElement.id
-  console.log(activeDisk)
-  console.log(activeStack)
+  // console.log(activeDisk)
+  // console.log(activeStack)
   // give red border on block when selected
 
   // Go through all stacks and remove active stack from array
   for (let i = 0; i < stacks.length; i++) {
     if (activeStack === stacks[i].id) {
       stacks.splice(i, 1);
-      console.log(stacks)
+      // console.log(stacks)
     }
   }
 
@@ -49,16 +49,16 @@ function move(evt) {
 
 
 function check(evt) {
-  console.log(evt.target)
-  console.log(evt.target.firstElementChild)
-  console.log(activeDisk)
-  console.log(evt.target.firstElementChild < activeDisk)
+  // console.log(evt.target)
+  // console.log(evt.target.firstElementChild)
+  // console.log(activeDisk)
+  // console.log(evt.target.firstElementChild < activeDisk)
 
-  if (!evt.target.firstElementChild || evt.target.firstElementChild > activeDisk) {
+  if (evt.target.firstElementChild === null || evt.target.firstElementChild > gitactiveDisk) {
     const targetDisk = disks[activeDisk - 1]
     targetDisk.classList.toggle("active")
     evt.target.prepend(targetDisk)
-  } else {
+  } else if(evt.target.firstElementChild < activeDisk ){
     evt.stopImmediatePropagation()
     // evt.target.classList.toggle("active")
     alert("You can't place larger disks on top of smaller ones! Try Again.")
