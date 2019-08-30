@@ -27,7 +27,7 @@ function move() {
       activeDisk = evt.target.dataset.value
       activeStack = evt.target.parentElement.id
 
-      if(activeStack.id ===  )
+      // if(activeStack.id ===  )
 
       // give red border on block when selected
       disks[i].style.border = 'Red 2px Solid';
