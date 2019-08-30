@@ -38,7 +38,9 @@ let disks = [one, two, three]
 const gameElement = document.querySelector(".game")
 
 gameElement.addEventListener("click", evt => {
-  
+    for (let i = 0; i < disks.length; i++)
+      if( evt.target = disks[0]){
+        stackB.prepend(disks[0])} 
   console.log(evt.target)
 })
 
