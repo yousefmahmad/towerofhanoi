@@ -1,5 +1,5 @@
 # Tower of Hanoi
-A readme.md file, including
+
 # The Game
 
   Tower of Hanoi is a mathematical puzzle game which consists of 3 differnt rods or areas in which to place number of disks of varying sizes. The goal of the game is to move the disks from the rightmost rod or area to the leftmost ro or area. Only one disk may be moved at any point. The disks must be, from top to bottom, in order of size. Furthermore, when moving the disks, no disk may be placed upon a disk that is smaller than itself. 
