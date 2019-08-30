@@ -29,52 +29,34 @@ function move() {
       disks[i].style.border = 'Red 2px Solid';
       console.log(disks[i])
 
-
       // after  disk is selected, click on desired stack to move disk to
       stackA.addEventListener('click', function (evt) {
         stackA.prepend(disks[i])
-        win()
-        check(evt)
-      });
+        win(evt)
+        })
+      stackA.removeEventListener('click', function(){
+        return console.log(stopped)
+      })
 
       stackB.addEventListener('click', function (evt) {
         stackB.prepend(disks[i])
-        win()
-        check(evt)
-      });
-
+        win(evt)
+      })
+      stackB.removeEventListener('click', function(){
+        return console.log(stopped)
+      })
       stackC.addEventListener('click', function (evt) {
         stackC.prepend(disks[i])
-        win()
+        win(evt)
+        })
+        stackC.removeEventListener('click', function(){
+          return console.log(stopped)
+        })
         check(evt)
       })
-   evt.stopPropagation()
-   })
-}
+      }
+  
 console.log(move())
-
-// function stopMove(){
-//   for(let i = 0; i < disks.length; i++)
-//       disks[i].removeEventListener('click', function(){
-//         disks[i].style.border = 'none'
-//         console.log(disks[i]);
-
-//         stackA.removeEventListener('click', function () {
-//           null
-//         });
-
-//         stackB.removeEventListener('click', function () {
-//           null
-//         });
-
-//         stackC.removeListener('click', function () {
-//           null
-//         })
-
-//       })
-//     }
-
-
 
 // check function to make sure that the player doesn't place a larger disk on top of a smaller one.
 // currently not working, but targeting is working
@@ -86,9 +68,12 @@ function check(evt) {
     ) {
 
       alert("You can't place larger disks on top of smaller ones! Try Again.")
+      evt.stopImmediatePropagation()
     }
   }
 }
+
+
 
 //create a function so that when all 3 boxes have been set into stack C that the player wins
 // is not invoking until i go into console log and do callback
