@@ -13,7 +13,7 @@ const three = document.querySelector('#three')
 // create an array with each one of the disks within it
 let disks = [one, two, three]
 
-// active 
+// active disks and stacks used for selection
 
 let activeDisk = null
 let activeStack = null
@@ -24,24 +24,18 @@ let activeStack = null
 
 // Moving disks to different stacks
 for (let i = 0; i < disks.length; i++) {
-  // disks[i].addEventListener('click', move.bind(evt))
   disks[i].addEventListener('click', move)
 }
 function move(evt) {
-  // console.log(evt)
   evt.target.classList.toggle("active")
   stacks = [stackA, stackB, stackC]
   activeDisk = evt.target.dataset.value
   activeStack = evt.target.parentElement.id
-  // console.log(activeDisk)
-  // console.log(activeStack)
-  // give red border on block when selected
 
   // Go through all stacks and remove active stack from array
   for (let i = 0; i < stacks.length; i++) {
     if (activeStack === stacks[i].id) {
       stacks.splice(i, 1);
-      // console.log(stacks)
     }
   }
 
@@ -49,17 +43,16 @@ function move(evt) {
   for (let j = 0; j < stacks.length; j++) {
     stacks[j].addEventListener('click', check)
   }
+  win()
 }
 
 // Check that disk going into stack is not larger than disk already present in stack
 
 function check(evt) {
-  // console.log(evt.target)
-  // console.log(evt.target.firstElementChild)
-  // console.log(activeDisk)
-  // console.log(evt.target.firstElementChild < activeDisk)
 
-  if (evt.target.firstElementChild === null || evt.target.firstElementChild > activeDisk) {
+  if (evt.target.firstElementChild > activeDisk) {
+    console.log(evt.target.firstElementChild)
+    console.log(activeDisk)
     const targetDisk = disks[activeDisk - 1]
     targetDisk.classList.toggle("active")
     evt.target.prepend(targetDisk)
