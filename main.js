@@ -50,7 +50,7 @@ function move(evt) {
 
 function check(evt) {
 
-  if (evt.target.firstElementChild > activeDisk) {
+  if (evt.target.firstElementChild > activeDisk || evt.target.firstElementChild === null) {
     console.log(evt.target.firstElementChild)
     console.log(activeDisk)
     const targetDisk = disks[activeDisk - 1]
